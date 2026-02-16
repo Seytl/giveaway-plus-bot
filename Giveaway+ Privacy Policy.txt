@@ -1,0 +1,28 @@
+GIVEAWAY+ PRIVACY POLICY
+Last Updated: 16.02.2025
+
+1. Introduction
+This Privacy Policy explains how the Giveaway+ ("Bot") application collects, uses, and protects user data. By using the Bot, you are deemed to have accepted this policy.
+
+2. Collected Data
+We collect and process the following data to provide our service:
+- **User ID and Username:** To track participation in giveaways and determine winners.
+- **Server ID (Guild ID):** To record which server the giveaways are held in.
+- **Message IDs:** To manage and update giveaway messages.
+- **Role Data:** To organize role-restricted giveaways, etc.
+
+3. Use of Data
+Collected data is used solely to perform the bot's core functions (creating giveaways, ending them, selecting winners, keeping statistics).
+
+4. Data Sharing
+User data is not shared, sold, or rented to third parties, except for legal obligations.
+
+5. Data Retention and Deletion
+- Giveaway data is stored in the database for history (history) and statistics (stats) features.
+- If you wish for your data to be deleted, you can contact the developer via the bot's support server.
+
+6. Changes
+This policy may be updated from time to time. When significant changes are made, an announcement will be made via the bot or on the support server.
+
+7. Contact
+For questions regarding the privacy policy, you can reach the developer via Discord.

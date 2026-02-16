@@ -1,0 +1,7 @@
+node_modules
+database/*
+!database/.gitkeep
+config.json
+.env
+.DS_Store
+error.log

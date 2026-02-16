@@ -1,0 +1,31 @@
+{
+    "name": "anarvion-giveaway-bot",
+    "version": "1.0.0",
+    "description": "Ultra Premium Discord Çekiliş Botu - Discord.js v14",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js",
+        "deploy": "node deploy-commands.js"
+    },
+    "keywords": [
+        "discord",
+        "discord.js",
+        "giveaway",
+        "bot",
+        "çekiliş",
+        "anarvion"
+    ],
+    "author": "Anarvion",
+    "license": "MIT",
+    "dependencies": {
+        "@napi-rs/canvas": "^0.1.88",
+        "discord.js": "^14.14.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.2"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

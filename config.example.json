@@ -1,0 +1,55 @@
+{
+    "token": "YOUR_BOT_TOKEN_HERE",
+    "clientId": "YOUR_CLIENT_ID_HERE",
+    "embedColor": "#5865F2",
+    "owners": [
+        "YOUR_OWNER_ID_HERE"
+    ],
+    "topgg": {
+        "token": "YOUR_TOPGG_TOKEN_HERE",
+        "botId": "YOUR_BOT_ID_HERE",
+        "voteUrl": "YOUR_VOTE_URL_HERE",
+        "enabled": false
+    },
+    "webhooks": {
+        "reportUrl": "YOUR_REPORT_WEBHOOK_URL_HERE",
+        "appealUrl": "YOUR_APPEAL_WEBHOOK_URL_HERE",
+        "enabled": true
+    },
+    "giveaway": {
+        "defaultDuration": 86400000,
+        "maxDuration": 2592000000,
+        "minDuration": 10000,
+        "maxWinners": 50,
+        "maxBonusEntries": 10,
+        "updateInterval": 30000,
+        "embedColor": "#FF6B6B",
+        "winnerColor": "#FFD700",
+        "endedColor": "#2C2F33"
+    },
+    "messages": {
+        "inviteButton": "Invite Server",
+        "supportButton": "Support Server",
+        "noActiveGiveaways": "There are no active giveaways at the moment.",
+        "giveawayEnded": "This giveaway has ended!",
+        "alreadyJoined": "You have already joined this giveaway!",
+        "notJoined": "You have not joined this giveaway!",
+        "dmWinner": "Congratulations! You won a giveaway!",
+        "requirementNotMet": "You do not meet the participation requirements!"
+    },
+    "emojis": {
+        "giveaway": "🎉",
+        "trophy": "🏆",
+        "gift": "🎁",
+        "star": "⭐",
+        "crown": "👑",
+        "sparkles": "✨",
+        "confetti": "🎊",
+        "clock": "⏰",
+        "users": "👥",
+        "check": "✅",
+        "cross": "❌",
+        "warning": "⚠️",
+        "info": "ℹ️"
+    }
+}

@@ -1,0 +1,21 @@
+GIVEAWAY+ TERMS OF SERVICE
+Last Updated: 16.02.2025
+
+1. Acceptance of Service
+By using the Giveaway+ ("Bot") application or adding it to your server, you are deemed to have accepted these Terms of Service ("Terms"). If you do not accept the Terms, do not use the Bot.
+
+2. Usage Rules
+- You may not use the Bot for purposes contrary to the Discord Terms of Service and Community Guidelines.
+- Exploiting vulnerabilities, causing damage, or disrupting the operation of the Bot is prohibited.
+- Manipulating giveaway results or cheating is prohibited.
+- The service provided by the Bot is offered "as is"; it is not guaranteed to be uninterrupted or error-free.
+
+3. Disclaimer
+The Developer cannot be held responsible for direct or indirect damages (data loss, server issues, etc.) that may arise from the use or inability to use the Bot.
+
+4. Service Changes and Termination
+- The Developer reserves the right to change, suspend, or terminate the features, functions, or service of the Bot without prior notice.
+- Access to the Bot for users or servers that do not comply with the Terms (blacklist) may be blocked.
+
+5. Contact
+For questions or notifications regarding these terms, you can use the bot's support server.
