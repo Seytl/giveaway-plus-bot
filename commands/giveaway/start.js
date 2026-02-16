@@ -104,7 +104,7 @@ module.exports = {
                         new ButtonBuilder()
                             .setLabel(lang.premium_button || '⭐ Premium Al')
                             .setStyle(ButtonStyle.Link)
-                            .setURL('https://discord.gg/your-support-server') // Destek sunucusu linki
+                            .setURL('https://discord.gg/qaNsZcBw8d') // Destek sunucusu linki
                     );
 
                 return interaction.reply({

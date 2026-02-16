@@ -253,7 +253,7 @@ You can use your own emojis by editing the `emojis` section in the `config.json`
 
 ## 📞 Support
 
-- **Discord:** Giveaway+ Support Server
+- **Discord:** [Giveaway+ Support Server](https://discord.gg/qaNsZcBw8d)
 - **Website:** Hostimux.com
 
 ---

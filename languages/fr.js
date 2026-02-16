@@ -347,7 +347,7 @@ Les utilisateurs ont le droit de demander la suppression de leurs données. Si v
 Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Lorsque des changements importants sont apportés, des notifications seront faites via le serveur de support du bot ou les canaux d'annonce.
 
 ---
-**Contact:** [Serveur de Support](https://discord.gg/anarvion)`,
+**Contact:** [Serveur de Support](https://discord.gg/qaNsZcBw8d)`,
 
     tos_text: `# Conditions d'Utilisation de Giveaway+ (ToS)
 
@@ -388,7 +388,7 @@ Le développeur du bot se réserve le droit de mettre à jour ces Conditions d'U
 ---
 **Contact et Support:**
 Pour toute question ou notification, vous pouvez rejoindre notre Serveur de Support:
-[Serveur de Support](https://discord.gg/anarvion)`,
+[Serveur de Support](https://discord.gg/qaNsZcBw8d)`,
 
     // Policies and Terms (Full Text)
     privacy_text: `# Politique de Confidentialité Giveaway+
@@ -429,7 +429,7 @@ Les utilisateurs ont le droit de demander la suppression de leurs données. Si v
 Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Lorsque des changements importants sont apportés, des notifications seront faites via le serveur de support du bot ou les canaux d'annonce.
 
 ---
-**Contact :** [Serveur de Support](https://discord.gg/anarvion)`,
+**Contact :** [Serveur de Support](https://discord.gg/qaNsZcBw8d)`,
 
     tos_text: `# Conditions d'Utilisation Giveaway+ (ToS)
 
@@ -470,7 +470,7 @@ Le développeur du bot se réserve le droit de mettre à jour ces Conditions d'U
 ---
 **Contact et Support :**
 Pour toute question ou notification, vous pouvez rejoindre notre Serveur de Support :
-[Serveur de Support](https://discord.gg/anarvion)`,
+[Serveur de Support](https://discord.gg/qaNsZcBw8d)`,
 
     // Pause/Resume
     pause_giveaway: "Mettre en Pause",
@@ -507,7 +507,8 @@ Pour toute question ou notification, vous pouvez rejoindre notre Serveur de Supp
     appeal_defense_placeholder: "Why should the ban be lifted?",
     appeal_sent_title: "Appeal Sent",
     appeal_sent_desc: "Your appeal has been sent to the support team. It will be reviewed shortly.",
-    appeal_disabled: "Appeal system is currently disabled or not configured."
+    appeal_disabled: "Appeal system is currently disabled or not configured.",
+
     // Update Command
     update_description: "Met à jour le bot depuis GitHub (Propriétaire Uniquement)",
     update_owner_only: "❌ Vous n'avez pas la permission d'utiliser cette commande !",

@@ -369,7 +369,7 @@ Users have the right to request the deletion of their data. If you wish to have 
 We may update this privacy policy from time to time. When significant changes are made, notifications will be made via the bot's support server or announcement channels.
 
 ---
-**Contact:** [Support Server](https://discord.gg/anarvion)`,
+**Contact:** [Support Server](https://discord.gg/qaNsZcBw8d)`,
 
     tos_text: `# Giveaway+ Terms of Service (ToS)
 
@@ -410,7 +410,7 @@ The bot developer reserves the right to update these Terms of Service at any tim
 ---
 **Contact and Support:**
 For any questions or notifications, you can join our Support Server:
-[Support Server](https://discord.gg/anarvion)`,
+[Support Server](https://discord.gg/qaNsZcBw8d)`,
 
     // メンション
     mention_response: "やあ {user}！👋 私は**{bot}**、あなたのサーバーでプロフェッショナルでモダンな抽選を開催するために設計されました。🎉\n\n`/help`と入力して始めましょう。素晴らしい賞品を配りましょう！🚀",
@@ -423,7 +423,8 @@ For any questions or notifications, you can join our Support Server:
     appeal_defense_placeholder: "Why should the ban be lifted?",
     appeal_sent_title: "Appeal Sent",
     appeal_sent_desc: "Your appeal has been sent to the support team. It will be reviewed shortly.",
-    appeal_disabled: "Appeal system is currently disabled or not configured."
+    appeal_disabled: "Appeal system is currently disabled or not configured.",
+
     // Update Command
     update_description: "GitHubからボットを更新します（所有者のみ）",
     update_owner_only: "❌ このコマンドを使用する権限がありません！",

@@ -373,7 +373,7 @@ Los usuarios tienen derecho a solicitar el borrado de sus datos. Si deseas que t
 Podemos actualizar esta política de privacidad ocasionalmente. Cuando se hagan cambios importantes, se notificará a través del servidor de soporte o canales de anuncios.
 
 ---
-**Contacto:** [Servidor de Soporte](https://discord.gg/anarvion)`,
+**Contacto:** [Servidor de Soporte](https://discord.gg/qaNsZcBw8d)`,
 
     tos_text: `# Términos de Servicio de Giveaway+ (ToS)
 
@@ -414,7 +414,7 @@ El desarrollador del bot se reserva el derecho de actualizar estos Términos de 
 ---
 **Contacto y Soporte:**
 Para cualquier pregunta o notificación, puedes unirte a nuestro Servidor de Soporte:
-[Servidor de Soporte](https://discord.gg/anarvion)`,
+[Servidor de Soporte](https://discord.gg/qaNsZcBw8d)`,
 
     // Appeal
     appeal_modal_title: "Appeal Decision",
@@ -424,7 +424,8 @@ Para cualquier pregunta o notificación, puedes unirte a nuestro Servidor de Sop
     appeal_defense_placeholder: "Why should the ban be lifted?",
     appeal_sent_title: "Appeal Sent",
     appeal_sent_desc: "Your appeal has been sent to the support team. It will be reviewed shortly.",
-    appeal_disabled: "Appeal system is currently disabled or not configured."
+    appeal_disabled: "Appeal system is currently disabled or not configured.",
+
     // Update Command
     update_description: "Actualiza el bot desde GitHub (Solo Dueño)",
     update_owner_only: "❌ ¡No tienes permiso para usar este comando!",

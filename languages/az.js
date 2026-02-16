@@ -347,7 +347,7 @@ Toplanan məlumatlar **qətiyyən** üçüncü tərəf şirkətləri, reklamçı
 Bu məxfilik siyasətini zaman-zaman yeniləyə bilərik. Mühüm dəyişikliklər edildikdə, botun dəstək sunucusu və ya elan kanalları vasitəsilə bildiriş göndəriləcək.
 
 ---
-**Əlaqə:** [Dəstək Sunucusu](https://discord.gg/anarvion)`,
+**Əlaqə:** [Dəstək Sunucusu](https://discord.gg/qaNsZcBw8d)`,
 
     tos_text: `# Giveaway+ Xidmət Şərtləri (ToS)
 
@@ -388,7 +388,7 @@ Bot tərtibatçısı bu Xidmət Şərtləri istənilən vaxt yeniləmək hüququ
 ---
 **Əlaqə və Dəstək:**
 Hər hansı bir sualınız və ya bildirişiniz üçün Dəstək Sunucumuza qoşula bilərsiniz:
-[Dəstək Sunucusu](https://discord.gg/anarvion)`,
+[Dəstək Sunucusu](https://discord.gg/qaNsZcBw8d)`,
 
     // Pause/Resume
     pause_giveaway: "Çekilişi Saxla",
@@ -426,7 +426,8 @@ Hər hansı bir sualınız və ya bildirişiniz üçün Dəstək Sunucumuza qoş
     appeal_defense_placeholder: "Why should the ban be lifted?",
     appeal_sent_title: "Appeal Sent",
     appeal_sent_desc: "Your appeal has been sent to the support team. It will be reviewed shortly.",
-    appeal_disabled: "Appeal system is currently disabled or not configured."
+    appeal_disabled: "Appeal system is currently disabled or not configured.",
+
     // Update Command
     update_description: "Botu GitHub-dan yeniləyir (Yalnız Bot Sahibi)",
     update_owner_only: "❌ Bu əmri istifadə etmək icazəniz yoxdur!",

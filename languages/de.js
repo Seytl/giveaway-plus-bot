@@ -361,7 +361,7 @@ Benutzer haben das Recht, die Löschung ihrer Daten zu verlangen. Wenn Sie möch
 Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Bei wesentlichen Änderungen erfolgen Benachrichtigungen über den Support-Server oder Ankündigungskanäle des Bots.
 
 ---
-**Kontakt:** [Support-Server](https://discord.gg/anarvion)`,
+**Kontakt:** [Support-Server](https://discord.gg/qaNsZcBw8d)`,
 
     tos_text: `# Giveaway+ Nutzungsbedingungen (ToS)
 
@@ -402,7 +402,7 @@ Der Bot-Entwickler behält sich das Recht vor, diese Nutzungsbedingungen jederze
 ---
 **Kontakt und Support:**
 Für Fragen oder Benachrichtigungen können Sie unserem Support-Server beitreten:
-[Support-Server](https://discord.gg/anarvion)`,
+[Support-Server](https://discord.gg/qaNsZcBw8d)`,
 
     // Pause/Resume
     pause_giveaway: "Gewinnspiel Pausieren",
@@ -426,7 +426,8 @@ Für Fragen oder Benachrichtigungen können Sie unserem Support-Server beitreten
     appeal_defense_placeholder: "Why should the ban be lifted?",
     appeal_sent_title: "Appeal Sent",
     appeal_sent_desc: "Your appeal has been sent to the support team. It will be reviewed shortly.",
-    appeal_disabled: "Appeal system is currently disabled or not configured."
+    appeal_disabled: "Appeal system is currently disabled or not configured.",
+
     // Update Command
     update_description: "Aktualisiert den Bot von GitHub (Nur für Bot-Besitzer)",
     update_owner_only: "❌ Du hast keine Berechtigung, diesen Befehl zu verwenden!",

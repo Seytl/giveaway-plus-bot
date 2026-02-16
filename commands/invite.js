@@ -31,7 +31,7 @@ module.exports = {
                 new ButtonBuilder()
                     .setLabel(lang.support_server_button || 'Support Server')
                     .setStyle(ButtonStyle.Link)
-                    .setURL('https://discord.gg/your-support-server')
+                    .setURL('https://discord.gg/qaNsZcBw8d')
             );
 
         return interaction.reply({ embeds: [embed], components: [row], ephemeral: true });

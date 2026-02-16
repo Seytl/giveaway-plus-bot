@@ -347,7 +347,7 @@ Kullanıcılar, kendilerine ait verilerin silinmesini talep etme hakkına sahipt
 Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler yapıldığında, botun destek sunucusu veya duyuru kanalları üzerinden bilgilendirme yapılacaktır.
 
 ---
-**İletişim:** [Destek Sunucusu](https://discord.gg/anarvion)`,
+**İletişim:** [Destek Sunucusu](https://discord.gg/qaNsZcBw8d)`,
 
     tos_text: `# Giveaway+ Hizmet Şartları (ToS)
 
@@ -388,7 +388,7 @@ Bot geliştiricisi, bu Hizmet Şartlarını herhangi bir zamanda güncelleme hak
 ---
 **İletişim ve Destek:**
 Herhangi bir sorunuz veya bildiriminiz için Destek Sunucumuza katılabilirsiniz:
-[Destek Sunucusu](https://discord.gg/anarvion)`,
+[Destek Sunucusu](https://discord.gg/qaNsZcBw8d)`,
 
     // Pause/Resume
     pause_giveaway: "Çekilişi Duraklat",
@@ -431,7 +431,7 @@ Herhangi bir sorunuz veya bildiriminiz için Destek Sunucumuza katılabilirsiniz
     appeal_defense_placeholder: "Yasağınız neden kaldırılmalı?",
     appeal_sent_title: "İtiraz Gönderildi",
     appeal_sent_desc: "İtirazınız destek ekibine iletildi. En kısa sürede incelenecektir.",
-    appeal_disabled: "İtiraz sistemi şu anda devre dışı veya yapılandırılmamış."
+    appeal_disabled: "İtiraz sistemi şu anda devre dışı veya yapılandırılmamış.",
 
     // Update Command
     update_description: "Botu GitHub üzerinden günceller (Sadece Bot Sahibi)",
