@@ -104,6 +104,16 @@ module.exports = {
     report_error: "Rapor gönderilirken bir hata oluştu.",
     not_provided: "Belirtilmedi",
 
+    // Hata Sebepleri
+    user_not_found: "Kullanıcı bulunamadı.",
+    missing_roles: "Bu çekilişe katılmak için gerekli rollere sahip değilsin.",
+    denied_role: "Bu çekilişe katılmanı engelleyen bir rolün var.",
+    account_age_error: "Hesabın bu çekilişe katılmak için yeterince eski değil.",
+    server_age_error: "Bu sunucuda bu çekilişe katılmak için yeterince süredir bulunmuyorsun.",
+    embed_update_error: "Embed güncellenemedi.",
+    not_drop: "Bu bir Drop çekilişi değil.",
+    paused: "Bu çekiliş şu anda duraklatılmış.",
+
     // Çekiliş Başlatma
     giveaway_started_title: "Çekiliş Başlatıldı!",
     duration: "Süre",

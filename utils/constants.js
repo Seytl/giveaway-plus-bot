@@ -24,6 +24,9 @@ module.exports = {
         STAR: '⭐',
         CROWN: '👑',
         SHIELD: '🛡️',
-        DOCS: '📄'
+        DOCS: '📄',
+        ARROW: '➡️',
+        ROCKET: '🚀',
+        HOURGLASS: '⏳'
     }
 };

@@ -54,7 +54,7 @@ if (fs.existsSync(giveawayCommandsPath)) {
     for (const file of giveawayFiles) {
         const command = require(path.join(giveawayCommandsPath, file));
         giveawayCommands[command.data.name] = command;
-        console.log(`[KOMUT] Giveaway komutu yüklendi: ${command.data.name}`);
+        console.log(`[COMMAND] Giveaway command loaded: ${command.data.name}`);
     }
 }
 
@@ -65,7 +65,7 @@ if (fs.existsSync(blacklistCommandsPath)) {
     for (const file of blacklistFiles) {
         const command = require(path.join(blacklistCommandsPath, file));
         blacklistCommands[command.data.name] = command;
-        console.log(`[KOMUT] Blacklist komutu yüklendi: ${command.data.name}`);
+        console.log(`[COMMAND] Blacklist command loaded: ${command.data.name}`);
     }
 }
 
@@ -76,7 +76,7 @@ if (fs.existsSync(premiumCommandsPath)) {
     for (const file of premiumFiles) {
         const command = require(path.join(premiumCommandsPath, file));
         premiumCommands[command.data.name] = command;
-        console.log(`[KOMUT] Premium komutu yüklendi: ${command.data.name}`);
+        console.log(`[COMMAND] Premium command loaded: ${command.data.name}`);
     }
 }
 
@@ -86,18 +86,18 @@ let giveawayManager;
 // Bot hazır
 client.once(Events.ClientReady, async () => {
     console.log('━'.repeat(50));
-    console.log(`${Emojis.CHECK} Bot başarıyla başlatıldı!`);
-    console.log(`${Emojis.ARROW} Kullanıcı: ${client.user.tag}`);
-    console.log(`${Emojis.ARROW} Sunucu Sayısı: ${client.guilds.cache.size}`);
+    console.log(`${Emojis.CHECK} Bot successfully started!`);
+    console.log(`${Emojis.ARROW} User: ${client.user.tag}`);
+    console.log(`${Emojis.ARROW} Server Count: ${client.guilds.cache.size}`);
 
     // Çekiliş yöneticisini başlat
     giveawayManager = new GiveawayManager(client);
 
-    console.log(`${Emojis.ARROW} Aktif Çekiliş: ${giveawayManager.getActiveGiveaways().length}`);
-    console.log(`${Emojis.ARROW} Yüklenen Giveaway Komutları: ${Object.keys(giveawayCommands).length}`);
-    console.log(`${Emojis.ARROW} Yüklenen Blacklist Komutları: ${Object.keys(blacklistCommands).length}`);
-    console.log(`${Emojis.ARROW} Yüklenen Premium Komutları: ${Object.keys(premiumCommands).length}`);
-    console.log(`${Emojis.ROCKET} Global Bot Modu: Aktif`);
+    console.log(`${Emojis.ARROW} Active Giveaways: ${giveawayManager.getActiveGiveaways().length}`);
+    console.log(`${Emojis.ARROW} Loaded Giveaway Commands: ${Object.keys(giveawayCommands).length}`);
+    console.log(`${Emojis.ARROW} Loaded Blacklist Commands: ${Object.keys(blacklistCommands).length}`);
+    console.log(`${Emojis.ARROW} Loaded Premium Commands: ${Object.keys(premiumCommands).length}`);
+    console.log(`${Emojis.ROCKET} Global Bot Mode: Active`);
     console.log('━'.repeat(50));
 
     // Durum ayarla (Döngüsel)
@@ -108,8 +108,8 @@ client.once(Events.ClientReady, async () => {
         const memberCount = client.guilds.cache.reduce((acc, g) => acc + g.memberCount, 0);
 
         const activities = [
-            { name: `🎉 ${activeCount} Çekiliş | ${serverCount} Sunucu`, type: ActivityType.Watching },
-            { name: `👥 ${memberCount} Kullanıcı`, type: ActivityType.Watching },
+            { name: `🎉 ${activeCount} Giveaways | ${serverCount} Servers`, type: ActivityType.Watching },
+            { name: `👥 ${memberCount} Users`, type: ActivityType.Watching },
             { name: `/giveaway | /help`, type: ActivityType.Playing },
             { name: `🚀 Ultimate Giveaway Bot`, type: ActivityType.Competing },
             { name: `Sponsored by Hostimux.com`, type: ActivityType.Playing }
@@ -173,18 +173,18 @@ client.once(Events.ClientReady, async () => {
             if ('data' in command && 'execute' in command) {
                 // Manuel olarak eklemek yerine listeye pushla
                 commands.push(command.data.toJSON());
-                console.log(`[KOMUT] Root komut yüklendi: ${command.data.name}`);
+                console.log(`[COMMAND] Root command loaded: ${command.data.name}`);
             }
         }
     }
 
     try {
-        console.log(`${Emojis.HOURGLASS} Global slash komutları kaydediliyor...`);
+        console.log(`${Emojis.HOURGLASS} Registering global slash commands...`);
         await client.application.commands.set(commands);
-        console.log(`${Emojis.CHECK} Global slash komutları başarıyla kaydedildi!`);
-        console.log(`${Emojis.INFO} Toplam ${commands.length} komut kaydedildi.`);
+        console.log(`${Emojis.CHECK} Global slash commands successfully registered!`);
+        console.log(`${Emojis.INFO} Total ${commands.length} commands registered.`);
     } catch (error) {
-        console.error('[COMMANDS] Komut kayıt hatası:', error);
+        console.error('[COMMANDS] Command registration error:', error);
     }
 });
 
@@ -289,8 +289,8 @@ client.on('interactionCreate', async (interaction) => {
                     return; // Exit after successful execution
                 }
             } catch (error) {
-                console.error(`[COMMAND] ${commandName} hatası:`, error);
-                const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Hata', 'Komut çalıştırılırken bir hata oluştu.');
+                console.error(`[COMMAND] ${commandName} error:`, error);
+                const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Error', 'An error occurred while executing the command.');
                 if (!interaction.replied && !interaction.deferred) {
                     await interaction.reply({ embeds: [errorEmbed], ephemeral: true }).catch(() => { });
                 } else {
@@ -311,8 +311,8 @@ client.on('interactionCreate', async (interaction) => {
                     try {
                         await giveawayCommands['template'].execute(interaction, giveawayManager);
                     } catch (error) {
-                        console.error(`[GIVEAWAY] Template ${subcommand} hatası:`, error);
-                        const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Hata', 'Komut çalıştırılırken bir hata oluştu.');
+                        console.error(`[GIVEAWAY] Template ${subcommand} error:`, error);
+                        const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Error', 'An error occurred while executing the command.');
                         if (interaction.replied || interaction.deferred) {
                             await interaction.editReply({ embeds: [errorEmbed] }).catch(() => { });
                         } else {
@@ -326,8 +326,8 @@ client.on('interactionCreate', async (interaction) => {
                     try {
                         await giveawayCommands[subcommand].execute(interaction, giveawayManager);
                     } catch (error) {
-                        console.error(`[GIVEAWAY] ${subcommand} komut hatası:`, error);
-                        const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Hata', 'Komut çalıştırılırken bir hata oluştu.');
+                        console.error(`[GIVEAWAY] ${subcommand} command error:`, error);
+                        const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Error', 'An error occurred while executing the command.');
                         if (interaction.replied || interaction.deferred) {
                             await interaction.editReply({ embeds: [errorEmbed] }).catch(() => { });
                         } else {
@@ -346,8 +346,8 @@ client.on('interactionCreate', async (interaction) => {
                 try {
                     await blacklistCommands[subcommand].execute(interaction);
                 } catch (error) {
-                    console.error(`[BLACKLIST] ${subcommand} komut hatası:`, error);
-                    const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Hata', 'Komut çalıştırılırken bir hata oluştu.');
+                    console.error(`[BLACKLIST] ${subcommand} command error:`, error);
+                    const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Error', 'An error occurred while executing the command.');
                     if (interaction.replied || interaction.deferred) {
                         await interaction.editReply({ embeds: [errorEmbed] }).catch(() => { });
                     } else {
@@ -365,8 +365,8 @@ client.on('interactionCreate', async (interaction) => {
                 try {
                     await premiumCommands[subcommand].execute(interaction);
                 } catch (error) {
-                    console.error(`[PREMIUM] ${subcommand} komut hatası:`, error);
-                    const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Hata', 'Komut çalıştırılırken bir hata oluştu.');
+                    console.error(`[PREMIUM] ${subcommand} command error:`, error);
+                    const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Error', 'An error occurred while executing the command.');
                     if (interaction.replied || interaction.deferred) {
                         await interaction.editReply({ embeds: [errorEmbed] }).catch(() => { });
                     } else {
@@ -382,8 +382,8 @@ client.on('interactionCreate', async (interaction) => {
                 const languageCommand = require('./commands/language.js');
                 await languageCommand.execute(interaction);
             } catch (error) {
-                console.error('[LANGUAGE] Komut hatası:', error);
-                const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Hata', 'Komut çalıştırılırken bir hata oluştu.');
+                console.error('[LANGUAGE] Command error:', error);
+                const errorEmbed = GiveawayComponentsV2.createErrorEmbed('Error', 'An error occurred while executing the command.');
                 if (interaction.replied || interaction.deferred) {
                     await interaction.editReply({ embeds: [errorEmbed] }).catch(() => { });
                 } else {
@@ -602,24 +602,16 @@ ${Emojis.CLOCK} **${lang.ends_at}:** ${formatTimestamp(new Date(giveaway.endTime
 
 // Yeni sunucuya katılma
 client.on('guildCreate', (guild) => {
-    console.log(`${Emojis.CHECK} Yeni sunucuya katıldı: ${guild.name} (${guild.id})`);
+    console.log(`${Emojis.CHECK} Joined new server: ${guild.name} (${guild.id})`);
 });
 
 // Sunucudan ayrılma
 client.on('guildDelete', (guild) => {
-    console.log(`${Emojis.WARNING} Sunucudan ayrıldı: ${guild.name} (${guild.id})`);
+    console.log(`${Emojis.WARNING} Left server: ${guild.name} (${guild.id})`);
 });
 
-// Hata yakalama
-process.on('unhandledRejection', (error) => {
-    console.error('[ERROR] Yakalanmamış hata:', error);
-    fs.appendFileSync('error.log', `[${new Date().toISOString()}] Unhandled Rejection: ${error.stack}\n`);
-});
-
-process.on('uncaughtException', (error) => {
-    console.error('[ERROR] Kritik hata:', error);
-    fs.appendFileSync('error.log', `[${new Date().toISOString()}] Uncaught Exception: ${error.stack}\n`);
-});
+// Anti-Crash Modülünü Yükle
+require('./utils/antiCrash')(client);
 
 // Bot giriş
 client.login(config.token);

@@ -36,7 +36,7 @@ class GiveawayManager {
                 this.endGiveaway(g.id);
             }
         });
-        console.log(`[GIVEAWAY] ${this.giveaways.size} çekiliş yüklendi.`);
+        console.log(`[GIVEAWAY] ${this.giveaways.size} giveaways loaded.`);
     }
 
     save() {
@@ -223,7 +223,7 @@ class GiveawayManager {
 
                     await user.send({ embeds: [dmEmbed] });
                 } catch (err) {
-                    console.log(`[GIVEAWAY] DM gönderilemedi: ${winnerId}`);
+                    console.log(`[GIVEAWAY] DM could not be sent: ${winnerId}`);
                 }
             }
         } catch (error) {
@@ -485,7 +485,7 @@ class GiveawayManager {
                     const user = await this.client.users.fetch(winnerId);
                     await user.send({ embeds: [embed] });
                 } catch (err) {
-                    console.log(`[GIVEAWAY] DM gönderilemedi: ${winnerId}`);
+                    console.log(`[GIVEAWAY] DM could not be sent: ${winnerId}`);
                 }
             }
         } catch (error) {
@@ -551,7 +551,7 @@ class GiveawayManager {
             const message = await channel.messages.fetch(giveaway.messageId);
             await message.delete();
         } catch (error) {
-            console.log(`[GIVEAWAY] Mesaj silinemedi: ${error.message}`);
+            console.log(`[GIVEAWAY] Message could not be deleted: ${error.message}`);
         }
 
         this.giveaways.delete(giveawayId);

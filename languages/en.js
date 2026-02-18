@@ -101,7 +101,28 @@ module.exports = {
     report_sent_desc: "Nice catch, buddy! You're good at this! 🕵️\n\nThanks for letting us know. Our dev team will look into it ASAP. Keep up the great work! 💪",
     report_disabled: "Bug reporting system is currently disabled.",
     report_error: "An error occurred while sending the report.",
+    report_error: "An error occurred while sending the report.",
     not_provided: "Not provided",
+
+    // Error Reasons
+    user_not_found: "User not found.",
+    missing_roles: "You do not have the required roles to join.",
+    denied_role: "You have a role that is blocked from joining this giveaway.",
+    account_age_error: "Your account is not old enough to join.",
+    server_age_error: "You haven't been in this server long enough to join.",
+    embed_update_error: "Failed to update the embed.",
+    not_drop: "This is not a Drop giveaway.",
+    paused: "This giveaway is currently paused.",
+
+    // Error Reasons
+    user_not_found: "User not found.",
+    missing_roles: "You do not have the required roles to join.",
+    denied_role: "You have a role that is blocked from joining this giveaway.",
+    account_age_error: "Your account is not old enough to join.",
+    server_age_error: "You haven't been in this server long enough to join.",
+    embed_update_error: "Failed to update the embed.",
+    not_drop: "This is not a Drop giveaway.",
+    paused: "This giveaway is currently paused.",
 
     // Giveaway Start
     giveaway_started_title: "Giveaway Started!",

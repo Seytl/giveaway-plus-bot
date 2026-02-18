@@ -82,11 +82,11 @@ class LanguageManager {
     // Dil çevirisini al (özel çeviriler dahil)
     static get(guildId, key, replacements = {}) {
         const langCode = this.getServerLanguage(guildId);
-        const lang = languages[langCode] || languages[DEFAULT_LANGUAGE];
+        const lang = this.getLang(guildId); // Use the robust getLang method
         const customTranslations = this.getCustomTranslations(guildId);
 
-        // Önce özel çevirilere bak, yoksa varsayılan dile bak
-        let text = customTranslations[key] || lang[key] || languages[DEFAULT_LANGUAGE][key] || key;
+        // Önce özel çevirilere bak, yoksa birleştirilmiş dilden al
+        let text = customTranslations[key] || lang[key] || key;
 
         // Değişken değiştirmeleri
         for (const [placeholder, value] of Object.entries(replacements)) {
@@ -99,11 +99,13 @@ class LanguageManager {
     // Tüm dil dosyasını al (özel çevirilerle birleştirilmiş)
     static getLang(guildId) {
         const langCode = this.getServerLanguage(guildId);
-        const baseLang = languages[langCode] || languages[DEFAULT_LANGUAGE];
+        const defaultLang = languages[DEFAULT_LANGUAGE];
+        const selectedLang = languages[langCode] || defaultLang;
         const customTranslations = this.getCustomTranslations(guildId);
 
-        // Özel çevirileri varsayılan dil ile birleştir
-        return { ...baseLang, ...customTranslations };
+        // Merge: Default English -> Selected Language -> Custom Translations
+        // This ensures no keys are ever undefined (falling back to English)
+        return { ...defaultLang, ...selectedLang, ...customTranslations };
     }
 
     // Mevcut dilleri listele
