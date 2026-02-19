@@ -1,34 +1,96 @@
 const fs = require('fs');
 const { Colors, Emojis } = require('./constants');
+const { EmbedBuilder, WebhookClient } = require('discord.js');
+const config = require('../config.json');
 
 module.exports = (client) => {
-    // Unhandled Rejection: Promise errors (logs but doesn't crash the bot)
+    let errorWebhook = null;
+    let errorCount = 0;
+    const MAX_ERRORS = 5;
+
+    if (config.webhooks.errorUrl && config.webhooks.errorUrl !== "YOUR_ERROR_WEBHOOK_URL_HERE") {
+        errorWebhook = new WebhookClient({ url: config.webhooks.errorUrl });
+    }
+
+    const sendErrorLog = async (title, error, type = 'error') => {
+        // Increment error count for critical errors
+        if (type === 'error') {
+            errorCount++;
+        }
+
+        // Console Log
+        console.log('━'.repeat(50));
+        console.log(`${type === 'warning' ? Emojis.WARNING : Emojis.CROSS} [ANTI-CRASH] ${title}`);
+        console.log(error);
+        console.log(`[SYSTEM] Error Count: ${errorCount}/${MAX_ERRORS}`);
+        console.log('━'.repeat(50));
+
+        // File Log
+        const logEntry = `[${new Date().toISOString()}] ${title} (${errorCount}/${MAX_ERRORS}): ${error.stack || error}\n`;
+        fs.appendFileSync('error.log', logEntry);
+
+        // Webhook Log
+        if (errorWebhook) {
+            try {
+                const embed = new EmbedBuilder()
+                    .setTitle(`${type === 'warning' ? '⚠️ Warning' : '❌ Critical Error'} - ${title}`)
+                    .setColor(type === 'warning' ? Colors.WARNING : Colors.ERROR)
+                    .setDescription(`\`\`\`js\n${(error.stack || error).toString().slice(0, 4000)}\n\`\`\``)
+                    .addFields({ name: 'Error Counter', value: `${errorCount}/${MAX_ERRORS}`, inline: true })
+                    .setTimestamp()
+                    .setFooter({ text: 'Anti-Crash System' });
+
+                await errorWebhook.send({
+                    content: type === 'error' ? '<@&YOUR_DEV_ROLE_ID>' : null,
+                    embeds: [embed]
+                });
+            } catch (err) {
+                console.error('[ANTI-CRASH] Failed to send webhook:', err);
+            }
+        }
+
+        // Auto-Restart Check
+        if (errorCount >= MAX_ERRORS) {
+            console.log(`${Emojis.REFRESH} [SYSTEM] Maximum error limit reached. Restarting...`);
+
+            if (errorWebhook) {
+                const restartEmbed = new EmbedBuilder()
+                    .setTitle('🔄 System Auto-Restart')
+                    .setColor(Colors.PRIMARY)
+                    .setDescription(`Maximum error limit (${MAX_ERRORS}) reached. The bot is restarting to ensure stability.`)
+                    .setTimestamp();
+
+                try {
+                    await errorWebhook.send({ embeds: [restartEmbed] });
+                } catch (e) { /* ignore */ }
+            }
+
+            // Allow time for webhook to send
+            setTimeout(() => {
+                process.exit(1);
+            }, 3000);
+        }
+    };
+
+    // Unhandled Rejection
     process.on('unhandledRejection', (reason, p) => {
-        console.log('━'.repeat(50));
-        console.log(`${Emojis.CROSS} [ANTI-CRASH] Unhandled Rejection/Catch`);
-        console.log(reason, p);
-        console.log('━'.repeat(50));
-
-        fs.appendFileSync('error.log', `[${new Date().toISOString()}] Unhandled Rejection: ${reason}\n`);
+        sendErrorLog('Unhandled Rejection/Catch', reason);
     });
 
-    // Uncaught Exception: Critical errors (normally crashes the bot)
+    // Uncaught Exception
     process.on('uncaughtException', (err, origin) => {
-        console.log('━'.repeat(50));
-        console.log(`${Emojis.CROSS} [ANTI-CRASH] Uncaught Exception/Catch`);
-        console.log(err, origin);
-        console.log('━'.repeat(50));
-
-        fs.appendFileSync('error.log', `[${new Date().toISOString()}] Uncaught Exception: ${err.stack}\n`);
+        sendErrorLog('Uncaught Exception/Catch', err);
     });
 
-    // Uncaught Exception Monitor: Exception monitoring
+    // Uncaught Exception Monitor
     process.on('uncaughtExceptionMonitor', (err, origin) => {
-        console.log('━'.repeat(50));
-        console.log(`${Emojis.WARNING} [ANTI-CRASH] Uncaught Exception Monitor`);
-        console.log(err, origin);
-        console.log('━'.repeat(50));
+        sendErrorLog('Uncaught Exception Monitor', err, 'warning');
     });
 
-    console.log(`${Emojis.CHECK} [SYSTEM] Anti-Crash module loaded successfully.`);
+    // Warning
+    process.on('warning', (warning) => {
+        sendErrorLog('Process Warning', warning, 'warning');
+    });
+
+    console.log(`${Emojis.CHECK} [SYSTEM] Anti-Crash module loaded successfully (Webhook: ${errorWebhook ? 'Active' : 'Disabled'}).`);
 };

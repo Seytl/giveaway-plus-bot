@@ -1,4 +1,4 @@
-# 🎉 Giveaway + Premium Giveaway Bot By Anarvion
+# 🎉 Giveaway + Premium Giveaway Bot By Vexy
 
 Professional and comprehensive giveaway bot developed with Discord.js v14.
 
