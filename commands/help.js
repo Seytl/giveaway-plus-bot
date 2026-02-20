@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle , MessageFlags } = require('discord.js');
 const { createEmbed } = require('../utils/embedBuilder');
 const { Colors, Emojis } = require('../utils/constants');
 const { LanguageManager } = require('../utils/languageManager');
@@ -59,6 +59,6 @@ module.exports = {
                     .setURL('https://top.gg/bot/your-bot-id')
             );
 
-        return interaction.reply({ embeds: [helpEmbed], components: [row], ephemeral: true });
+        return interaction.reply({ embeds: [helpEmbed], components: [row], flags: MessageFlags.Ephemeral });
     }
 };

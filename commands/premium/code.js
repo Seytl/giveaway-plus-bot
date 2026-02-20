@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { PremiumManager } = require('../../utils/database');
 const { GiveawayManager } = require('../../utils/GiveawayManager');
@@ -37,7 +37,7 @@ module.exports = {
         if (!PremiumManager.isServerPremium(interaction.guildId)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.premium_required, lang.premium_feature_desc)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -49,7 +49,7 @@ module.exports = {
 
         let codes = [];
 
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
         // 1. Dosyadan Kod Okuma
         if (file) {

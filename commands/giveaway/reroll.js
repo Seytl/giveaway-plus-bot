@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandSubcommandBuilder, PermissionFlagsBits , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 
 module.exports = {
@@ -24,13 +24,13 @@ module.exports = {
         if (!interaction.member.permissions.has(PermissionFlagsBits.ManageGuild)) {
             return interaction.reply({
                 embeds: [GiveawayEmbeds.createErrorEmbed(lang.permission_error, lang.manage_server_required)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
         const giveawayId = interaction.options.getString('id');
         const count = interaction.options.getInteger('count') || 1;
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
         const result = await giveawayManager.reroll(giveawayId, count);
 

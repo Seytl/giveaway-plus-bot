@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandSubcommandBuilder, PermissionFlagsBits , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { parseTime, formatDuration } = require('../../utils/time');
 const { Emojis } = require('../../utils/constants');
@@ -63,7 +63,7 @@ module.exports = {
         if (!interaction.member.permissions.has(PermissionFlagsBits.ManageGuild)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.permission_error, lang.manage_server_required)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -73,7 +73,7 @@ module.exports = {
         if (duration < 10000) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.invalid_duration, lang.min_duration_error)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -110,7 +110,7 @@ module.exports = {
                 return interaction.reply({
                     embeds: [voteEmbed],
                     components: [voteButton],
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
         }
@@ -127,14 +127,14 @@ module.exports = {
             if (duration > LIMITS.MAX_DURATION) {
                 return interaction.reply({
                     embeds: [GiveawayComponentsV2.createErrorEmbed(lang.premium, lang.premium_duration_error || 'Premium üyeliğiniz veya sunucu premium\'u olmadığı için maksimum 7 günlük çekiliş başlatabilirsiniz.')],
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
             // Kazanan sayısı limiti kontrolü
             if (winnerCount > LIMITS.MAX_WINNERS) {
                 return interaction.reply({
                     embeds: [GiveawayComponentsV2.createErrorEmbed(lang.premium, lang.premium_winner_limit_error || 'Premium üyeliğiniz veya sunucu premium\'u olmadığı için maksimum 10 kazanan seçebilirsiniz.')],
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
 
@@ -143,7 +143,7 @@ module.exports = {
             if (activeGiveaways.length >= LIMITS.MAX_COUNT) {
                 return interaction.reply({
                     embeds: [GiveawayComponentsV2.createErrorEmbed(lang.premium, lang.premium_count_limit_error || 'Premium üyeliğiniz veya sunucu premium\'u olmadığı için aynı anda maksimum 5 aktif çekiliş oluşturabilirsiniz.')],
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
         }
@@ -158,7 +158,7 @@ module.exports = {
         const serverAge = options.getInteger('server_age');
         const image = options.getString('image');
 
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
         try {
             const giveawayOptions = {

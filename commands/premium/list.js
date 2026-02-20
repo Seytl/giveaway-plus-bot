@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { PremiumManager } = require('../../utils/database');
 const config = require('../../config.json');
@@ -17,7 +17,7 @@ module.exports = {
         if (!config.owners.includes(interaction.user.id)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.permission_error, lang.owner_only)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -73,6 +73,6 @@ module.exports = {
         const combinedList = [...serverListWithNames, ...userListWithNames];
         const embed = GiveawayComponentsV2.createPremiumListEmbed(combinedList, 1, 1, lang);
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     }
 };

@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandGroupBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandSubcommandGroupBuilder, EmbedBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { TemplateManager } = require('../../utils/templateManager');
 const { Colors, Emojis } = require('../../utils/constants');
@@ -70,7 +70,7 @@ module.exports = {
             if (!durationMs) {
                 return interaction.reply({
                     content: `${Emojis.CROSS} ${lang.invalid_duration} ${lang.min_duration_error}`,
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
 
@@ -88,11 +88,11 @@ module.exports = {
                     `${Emojis.CHECK} **${name}**\n\n${Emojis.GIFT} ${lang.prize}: ${prize}\n${Emojis.CLOCK} ${lang.duration}: ${duration}\n${Emojis.TROPHY} ${lang.winner_count}: ${winners}`
                 );
 
-                await interaction.reply({ embeds: [embed], ephemeral: true });
+                await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
             } else {
                 await interaction.reply({
                     embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, `${result.reason}`)],
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
         }
@@ -105,7 +105,7 @@ module.exports = {
             if (!template) {
                 return interaction.reply({
                     content: `${Emojis.CROSS} ${lang.template_not_found || 'Şablon bulunamadı.'}`,
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
 
@@ -124,13 +124,13 @@ module.exports = {
 
                 await interaction.reply({
                     content: `${Emojis.CHECK} **${name}** ${lang.template_started || 'şablonu kullanılarak çekiliş başlatıldı!'}`,
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             } catch (error) {
                 console.error('[TEMPLATE START] Error:', error);
                 await interaction.reply({
                     content: `${Emojis.ERROR} ${lang.start_error || 'Çekiliş başlatılırken hata oluştu.'}`,
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
         }
@@ -142,7 +142,7 @@ module.exports = {
             if (templates.length === 0) {
                 return interaction.reply({
                     content: lang.no_templates || 'Hiç kayıtlı şablonunuz yok.',
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
 
@@ -155,7 +155,7 @@ module.exports = {
                 .setFooter({ text: `${lang.total}: ${templates.length}` })
                 .setTimestamp();
 
-            await interaction.reply({ embeds: [embed], ephemeral: true });
+            await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
         }
 
         // Sil
@@ -166,12 +166,12 @@ module.exports = {
             if (result.success) {
                 await interaction.reply({
                     content: `${Emojis.CHECK} **${name}** ${lang.template_deleted || 'şablonu silindi.'}`,
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             } else {
                 await interaction.reply({
                     content: `${Emojis.CROSS} ${lang.template_not_found || 'Şablon bulunamadı veya silinemedi.'}`,
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
         }

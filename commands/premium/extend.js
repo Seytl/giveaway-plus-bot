@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder, EmbedBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { PremiumManager, readJSON, writeJSON, PREMIUM_FILE } = require('../../utils/database');
 const { Colors, Emojis } = require('../../utils/constants');
@@ -40,7 +40,7 @@ module.exports = {
         if (!config.owners.includes(interaction.user.id)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.permission_error, lang.owner_only)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -61,14 +61,14 @@ module.exports = {
         if (!isPremium || !premiumInfo) {
             return interaction.reply({
                 embeds: [GiveawayEmbeds.createErrorEmbed(lang.error, lang.premium_not_found)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
         if (premiumInfo.expires === 'lifetime') {
             return interaction.reply({
                 embeds: [GiveawayEmbeds.createInfoEmbed(lang.info, lang.already_lifetime)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -113,6 +113,6 @@ ${Emojis.CLOCK} **${lang.added_time}:** ${days} ${lang.days}
 ${Emojis.CALENDAR} **${lang.new_expiry}:** ${newExpiresText}`)
             .setTimestamp();
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     }
 };

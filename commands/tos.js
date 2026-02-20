@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle , MessageFlags } = require('discord.js');
 const { createEmbed } = require('../utils/embedBuilder');
 const { LanguageManager } = require('../utils/languageManager');
 const { Colors, Emojis } = require('../utils/constants');
@@ -26,6 +26,6 @@ module.exports = {
                     .setURL('https://discord.gg/qaNsZcBw8d')
             );
 
-        await interaction.reply({ embeds: [embed], components: [row], ephemeral: true });
+        await interaction.reply({ embeds: [embed], components: [row], flags: MessageFlags.Ephemeral });
     }
 };

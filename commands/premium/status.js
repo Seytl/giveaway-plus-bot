@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder, EmbedBuilder , MessageFlags } = require('discord.js');
 const { PremiumManager } = require('../../utils/database');
 const { Colors, Emojis } = require('../../utils/constants');
 
@@ -68,6 +68,6 @@ ${lang.buy_premium_info}`)
                 .setTimestamp();
         }
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     }
 };

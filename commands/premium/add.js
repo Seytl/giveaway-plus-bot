@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, PermissionFlagsBits, EmbedBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder, PermissionFlagsBits, EmbedBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { PremiumManager } = require('../../utils/database');
 const { Colors, Emojis } = require('../../utils/constants');
@@ -121,7 +121,7 @@ module.exports = {
         if (!config.owners.includes(interaction.user.id)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.permission_error, lang.owner_only)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -200,6 +200,6 @@ ${Emojis.CLOCK || '⏰'} **${lang.duration || 'Duration'}:** ${durationText}
 ${Emojis.CLOCK || '⏰'} **${lang.ends_at}:** ${expiresText}`)
             .setTimestamp();
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     }
 };

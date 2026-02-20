@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../utils/componentsV2');
 const { Colors } = require('../utils/constants');
 const config = require('../config.json'); // Assuming config has ownerId
@@ -33,7 +33,7 @@ module.exports = {
         if (!config.owners.includes(interaction.user.id)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed('Permission Error', 'Only the bot owner can use this command.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -49,7 +49,7 @@ module.exports = {
         if (!channel.isTextBased()) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed('Invalid Channel', 'Please select a text-based channel.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -78,13 +78,13 @@ module.exports = {
 
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createSuccessEmbed('Announcement Sent', `Successfully sent announcement to ${channel}.`)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         } catch (error) {
             console.error(error);
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed('Error', 'Failed to send announcement. Check bot permissions in that channel.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
     },

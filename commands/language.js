@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder , MessageFlags } = require('discord.js');
 const { LanguageManager } = require('../utils/languageManager');
 const { Colors, Emojis } = require('../utils/constants');
 
@@ -38,7 +38,7 @@ module.exports = {
         const response = await interaction.reply({
             embeds: [embed],
             components: [row],
-            ephemeral: true
+            flags: MessageFlags.Ephemeral
         });
 
         // Seçim bekle

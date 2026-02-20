@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandSubcommandBuilder, PermissionFlagsBits , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 
 module.exports = {
@@ -19,12 +19,12 @@ module.exports = {
         if (!interaction.member.permissions.has(PermissionFlagsBits.ManageGuild)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.permission_error, lang.manage_server_required)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
         const giveawayId = interaction.options.getString('id');
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
         const giveaway = await giveawayManager.endGiveaway(giveawayId);
 

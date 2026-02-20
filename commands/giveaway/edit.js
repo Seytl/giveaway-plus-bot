@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { LanguageManager } = require('../../utils/languageManager');
 const { parseDuration } = require('../../utils/time');
@@ -39,14 +39,14 @@ module.exports = {
         if (!giveaway) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, lang.giveaway_not_found)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
         if (giveaway.ended) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, lang.giveaway_already_ended || 'Bu çekiliş zaten sona ermiş.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -61,7 +61,7 @@ module.exports = {
             if (!duration) {
                 return interaction.reply({
                     embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, lang.invalid_duration)],
-                    ephemeral: true
+                    flags: MessageFlags.Ephemeral
                 });
             }
 
@@ -71,7 +71,7 @@ module.exports = {
         if (!newPrize && !newWinnerCount && !addTimeMs) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, lang.no_changes || 'Hiçbir değişiklik belirtilmedi.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -89,13 +89,13 @@ module.exports = {
 
             await interaction.reply({
                 embeds: [GiveawayComponentsV2.createSuccessEmbed(lang.success, `${lang.giveaway_edited || 'Çekiliş düzenlendi!'}\n\n${changes.join('\n')}`)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         } else {
             const reason = lang[result.reason] || result.reason || lang.error;
             await interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, reason)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
     }

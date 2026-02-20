@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandSubcommandBuilder, PermissionFlagsBits , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { readJSON, writeJSON, BLACKLIST_FILE } = require('../../utils/database');
 
@@ -21,7 +21,7 @@ module.exports = {
         if (!config.owners.includes(interaction.user.id)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.permission_error, lang.only_owner)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -32,7 +32,7 @@ module.exports = {
         if (index === -1) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, lang.not_blacklisted || 'Bu kullanıcı kara listede değil.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -42,7 +42,7 @@ module.exports = {
 
         await interaction.reply({
             embeds: [GiveawayComponentsV2.createSuccessEmbed(lang.unblacklisted_success_title || 'Kara Listeden Çıkarıldı', `${user} ${lang.unblacklisted_success_desc || 'çekiliş kara listesinden çıkarıldı.'}`)],
-            ephemeral: true
+            flags: MessageFlags.Ephemeral
         });
     }
 };

@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder, EmbedBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { Colors, Emojis } = require('../../utils/constants');
 const { formatFullDate } = require('../../utils/time');
@@ -23,7 +23,7 @@ module.exports = {
         if (!giveaway) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, lang.giveaway_not_found)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -47,6 +47,6 @@ module.exports = {
             ]);
         }
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     }
 };

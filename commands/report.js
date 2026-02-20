@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, EmbedBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../utils/componentsV2');
 const { Colors, Emojis } = require('../utils/constants');
 const config = require('../config.json');
@@ -67,7 +67,7 @@ module.exports = {
         if (!config.webhooks || !config.webhooks.enabled || !config.webhooks.reportUrl || config.webhooks.reportUrl === 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, lang.report_disabled || 'Hata bildirme sistemi şu anda devre dışı.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -129,14 +129,14 @@ module.exports = {
 
             await interaction.reply({
                 embeds: [successEmbed],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
 
         } catch (error) {
             console.error('[REPORT] Webhook gönderme hatası:', error);
             await interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, lang.report_error || 'Rapor gönderilirken bir hata oluştu.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
     }

@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder , MessageFlags } = require('discord.js');
 const { exec } = require('child_process');
 const config = require('../config.json');
 const { LanguageManager } = require('../utils/languageManager');
@@ -16,11 +16,11 @@ module.exports = {
         if (!config.owners.includes(interaction.user.id)) {
             return interaction.reply({
                 content: LanguageManager.get(guildId, 'update_owner_only') || '❌ You do not have permission!',
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
         // 2. Git Pull Komutunu Çalıştır
         exec('git pull', async (error, stdout, stderr) => {

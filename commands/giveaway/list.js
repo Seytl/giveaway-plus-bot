@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder } = require('discord.js');
+const { SlashCommandSubcommandBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 
 module.exports = {
@@ -13,6 +13,6 @@ module.exports = {
         const giveaways = giveawayManager.getActiveGiveaways(interaction.guildId);
         const embed = GiveawayComponentsV2.createListEmbed(giveaways.slice(0, 10), 1, Math.ceil(giveaways.length / 10) || 1, lang);
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     }
 };

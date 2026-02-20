@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandSubcommandBuilder, PermissionFlagsBits , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { Emojis } = require('../../utils/constants');
 
@@ -19,7 +19,7 @@ module.exports = {
         if (!interaction.member.permissions.has(PermissionFlagsBits.ManageGuild)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.permission_error, lang.manage_server_required)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -29,7 +29,7 @@ module.exports = {
         if (!giveaway) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, lang.giveaway_not_found)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -38,13 +38,13 @@ module.exports = {
         if (result.success) {
             interaction.reply({
                 embeds: [GiveawayComponentsV2.createSuccessEmbed(lang.success, lang.pause_success || 'Çekiliş duraklatıldı.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         } else {
             const reason = lang[result.reason] || result.reason;
             interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error, reason)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
     }

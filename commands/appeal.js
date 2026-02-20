@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder, EmbedBuilder , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../utils/componentsV2');
 const { Colors, Emojis } = require('../utils/constants');
 const config = require('../config.json');
@@ -62,7 +62,7 @@ module.exports = {
         if (!config.webhooks || !config.webhooks.enabled || !config.webhooks.appealUrl || config.webhooks.appealUrl === 'YOUR_APPEAL_WEBHOOK_URL_HERE') {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error || 'Error', lang.appeal_disabled || 'Appeal system is currently disabled or not configured.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -129,14 +129,14 @@ module.exports = {
 
             await interaction.reply({
                 embeds: [successEmbed],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
 
         } catch (error) {
             console.error('[APPEAL] Webhook error:', error);
             await interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.error || 'Error', lang.report_error || 'An error occurred while sending the report.')],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
     }

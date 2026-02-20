@@ -1,4 +1,4 @@
-const { SlashCommandSubcommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandSubcommandBuilder, PermissionFlagsBits , MessageFlags } = require('discord.js');
 const { GiveawayComponentsV2 } = require('../../utils/componentsV2');
 const { readJSON, BLACKLIST_FILE } = require('../../utils/database');
 
@@ -17,7 +17,7 @@ module.exports = {
         if (!config.owners.includes(interaction.user.id)) {
             return interaction.reply({
                 embeds: [GiveawayComponentsV2.createErrorEmbed(lang.permission_error, lang.only_owner)],
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -31,6 +31,6 @@ module.exports = {
 
         const embed = GiveawayComponentsV2.createBlacklistEmbed(formattedList, 1, 1, lang);
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     }
 };
