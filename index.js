@@ -1,9 +1,9 @@
 /**
- * 🎉 Advanced Giveaway Bot
+ * 🎉 Advanced Giveaway Bot v2.1.0
  * Discord.js v14 - Global Slash Commands Only
  * 
- * Modüler Yapı - Sadece Slash Komutları
- * Geliştirici: Anarvion
+ * Modular Structure - Slash Commands Only
+ * Developer: Anarvion
  */
 
 const {

@@ -38,12 +38,34 @@ Professional and comprehensive giveaway bot developed with Discord.js v14.
 - ✅ **Blacklist** - Block unwanted users
 - ✅ **Permission Control** - Authority system for commands
 - ✅ **Anti-Cheat** - Prevent double entries
+- ✅ **Blacklist Appeal** - `/appeal` command for users to request unban
+
+### 🛡️ Anti-Crash System v2.1.0
+- ✅ **Error Handling** - Catches `unhandledRejection`, `uncaughtException`, and process warnings
+- ✅ **Webhook Reporting** - Sends error details to a Discord channel via Webhook in real-time
+- ✅ **Auto-Restart** - Automatically restarts after 5 critical errors
+- ✅ **Rapid Crash Detection** - Instant restart if 3 errors occur within 10 seconds
+- ✅ **Memory Monitoring** - Checks RAM every 60s, warns at 80%, restarts at 95%
+- ✅ **Error Counter Reset** - Counter resets to 0 after 5 minutes of stability
+- ✅ **Discord Client Errors** - Handles shard disconnect, reconnect, and client errors
+- ✅ **Graceful Shutdown** - Clean shutdown on SIGINT/SIGTERM signals
+- ✅ **Dual Logging** - Errors saved to `error.log` AND sent to Discord webhook
+
+### 🌍 Multi-Language Support
+- ✅ **15 Languages** - EN, TR, DE, ES, ES-AR, FR, IT, PT, NL, FI, SV, RU, JA, ZH, AZ
+- ✅ **Fallback System** - Missing translations automatically fall back to English
+- ✅ **Custom Translations** - Server-specific text customization
 
 ### 🎨 Visual Features
-- ✅ **Premium Embeds** - Professional looking messages
+- ✅ **Premium Embeds** - Professional looking messages with rich fields
 - ✅ **Custom Images** - Add images to giveaways
 - ✅ **Emoji Support** - Rich emoji usage
 - ✅ **Live Updates** - Real-time participant count updates
+
+### 🔧 Management
+- ✅ **Auto-Update** - `/update` command to pull latest changes from GitHub
+- ✅ **Bug Report** - `/report` command to report bugs via webhook
+- ✅ **Privacy & ToS** - Built-in `/privacy` and `/tos` commands
 
 ---
 
@@ -200,7 +222,24 @@ giveaway-bot/
 ├── package.json          # NPM dependencies
 ├── deploy-commands.js    # Slash command registration
 ├── README.md             # Documentation
-└── database/             # Database folder (automatically created)
+├── error.log             # Error log (auto-generated)
+├── commands/             # Command files
+│   ├── giveaway/         # Giveaway subcommands
+│   ├── blacklist/        # Blacklist subcommands
+│   ├── premium/          # Premium subcommands
+│   ├── appeal.js         # Blacklist appeal command
+│   ├── report.js         # Bug report command
+│   ├── update.js         # Auto-update from GitHub
+│   └── ...               # Other root commands
+├── utils/                # Utility modules
+│   ├── antiCrash.js      # Anti-Crash System v2.1.0
+│   ├── GiveawayManager.js # Core giveaway logic
+│   ├── componentsV2.js   # UI components & embeds
+│   ├── languageManager.js # Multi-language system
+│   ├── constants.js      # Colors & emojis
+│   └── ...               # Other utilities
+├── languages/            # Language files (15 languages)
+└── database/             # Database folder (auto-generated)
     ├── giveaways.json    # Active giveaways
     ├── blacklist.json    # Blacklist
     ├── history.json      # Giveaway history
@@ -265,6 +304,16 @@ This project is licensed under the GNU General Public License v3.0.
 ---
 
 ## 📊 Version History
+
+### v2.1.0 (Feb 2026) — Latest
+- 🛡️ **Anti-Crash System v2.1.0** — Memory monitoring, rapid crash detection, auto-restart
+- 🔄 **Auto-Update** — `/update` command to pull from GitHub and restart
+- 📩 **Blacklist Appeal** — `/appeal` command with webhook integration
+- 🌍 **15 Languages** — Full multi-language support with fallback system
+- 🐛 **Bug Report** — `/report` command to report issues via webhook
+- 📋 **Webhook System** — Error, appeal, and report webhooks
+- 🔧 **English Logs** — All console outputs standardized to English
+- ✅ **Undefined Fixes** — Fixed all undefined errors in translations and constants
 
 ### v2.0.0 (2026)
 - ✨ Discord.js v14 support

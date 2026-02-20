@@ -1,6 +1,6 @@
 {
     "name": "anarvion-giveaway-bot",
-    "version": "1.0.0",
+    "version": "2.1.0",
     "description": "Ultra Premium Discord Çekiliş Botu - Discord.js v14",
     "main": "index.js",
     "scripts": {
