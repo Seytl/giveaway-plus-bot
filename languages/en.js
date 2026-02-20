@@ -124,6 +124,12 @@ module.exports = {
     not_drop: "This is not a Drop giveaway.",
     paused: "This giveaway is currently paused.",
 
+    // Anti-Cheat
+    anticheat_cooldown: "Please wait a few seconds before trying again.",
+    anticheat_suspicious: "Your account has been flagged by our Anti-Cheat system. You cannot join this giveaway.",
+    anticheat_spam: "You have been temporarily blocked from this giveaway due to repeated join/leave activity.",
+    anticheat_win_limit: "You have reached the maximum number of wins for today. Try again tomorrow!",
+
     // Giveaway Start
     giveaway_started_title: "Giveaway Started!",
     duration: "Duration",

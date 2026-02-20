@@ -82,6 +82,12 @@ module.exports = {
     command_error: "Ocorreu um erro ao executar o comando.",
     participation_blocked: "Você está bloqueado de participar de sorteios.",
 
+    // Anti-Cheat
+    anticheat_cooldown: "Por favor, aguarde alguns segundos antes de tentar novamente.",
+    anticheat_suspicious: "Sua conta foi sinalizada pelo nosso sistema Anti-Cheat. Você não pode participar deste sorteio.",
+    anticheat_spam: "Você foi temporariamente bloqueado deste sorteio devido a atividade repetida de entrar/sair.",
+    anticheat_win_limit: "Você atingiu o número máximo de vitórias por hoje. Tente novamente amanhã!",
+
     // Sistema de Votos Top.gg
     vote_required_title: "🗳️ Voto Necessário!",
     vote_required_desc: "Você precisa votar no bot no **Top.gg** para iniciar um sorteio!\n\nTente novamente após votar. Usuários Premium podem pular a votação.",

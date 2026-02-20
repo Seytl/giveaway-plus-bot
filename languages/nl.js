@@ -82,6 +82,12 @@ module.exports = {
     command_error: "Er is een fout opgetreden bij het uitvoeren van het commando.",
     participation_blocked: "Je bent geblokkeerd voor deelname aan giveaways.",
 
+    // Anti-Cheat
+    anticheat_cooldown: "Wacht een paar seconden voordat je het opnieuw probeert.",
+    anticheat_suspicious: "Je account is gemarkeerd door ons Anti-Cheat systeem. Je kunt niet deelnemen aan deze giveaway.",
+    anticheat_spam: "Je bent tijdelijk geblokkeerd voor deze giveaway vanwege herhaalde deelname/verlaat-activiteit.",
+    anticheat_win_limit: "Je hebt het maximale aantal overwinningen voor vandaag bereikt. Probeer het morgen opnieuw!",
+
     // Top.gg Stemsysteem
     vote_required_title: "🗳️ Stem Vereist!",
     vote_required_desc: "Je moet op de bot stemmen op **Top.gg** om een giveaway te starten!\n\nProbeer opnieuw na het stemmen. Premium gebruikers kunnen stemmen overslaan.",

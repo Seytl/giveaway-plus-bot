@@ -83,6 +83,12 @@ module.exports = {
     command_error: "Əmr yerinə yetirilərkən xəta baş verdi.",
     participation_blocked: "Çekilişlərə qatılmağın əngəlləndi.",
 
+    // Anti-Cheat
+    anticheat_cooldown: "Zəhmət olmasa bir neçə saniyə gözləyin.",
+    anticheat_suspicious: "Hesabınız Anti-Cheat sistemi tərəfindən şüphəli olaraq qeyd edildi. Bu çekilişə qatıla bilməzsiniz.",
+    anticheat_spam: "Təkrarlanan qatıl/ayrıl hərəkətləri səbəbindən bu çekilişdən müvəqqəti olaraq bloklandınız.",
+    anticheat_win_limit: "Bu gün üçün maksimum qazanma sayısına çatdınız. Sabah yenidən cəhd edin!",
+
     // Top.gg Səs Sistemi
     vote_required_title: "🗳️ Səs Lazımdır!",
     vote_required_desc: "Çekiliş başlatmaq üçün **Top.gg**-də bota səs verməlisən!\n\nSəs verdikdən sonra yenidən cəhd et. Premium istifadəçilər səs vermədən istifadə edə bilər.",

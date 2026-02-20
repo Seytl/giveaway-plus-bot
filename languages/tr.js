@@ -83,6 +83,12 @@ module.exports = {
     command_error: "Komut çalıştırılırken bir hata oluştu.",
     participation_blocked: "Çekilişlere katılman engellendi.",
 
+    // Anti-Cheat
+    anticheat_cooldown: "Lütfen tekrar denemeden önce birkaç saniye bekle.",
+    anticheat_suspicious: "Hesabın Anti-Cheat sistemi tarafından şüpheli olarak işaretlendi. Bu çekilişe katılamazsın.",
+    anticheat_spam: "Tekrarlanan katıl/ayrıl hareketleri nedeniyle bu çekilişten geçici olarak engellendin.",
+    anticheat_win_limit: "Bugünkü maksimum kazanma sayısına ulaştın. Yarın tekrar dene!",
+
     // Top.gg Oy Sistemi
     vote_required_title: "🗳️ Oy Gerekli!",
     vote_required_desc: "Çekiliş başlatmak için **Top.gg**'de bota oy vermen gerekiyor!\n\nOy verdikten sonra tekrar dene. Premium kullanıcılar oy vermeden kullanabilir.",

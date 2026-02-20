@@ -82,6 +82,12 @@ module.exports = {
     command_error: "Si è verificato un errore durante l'esecuzione del comando.",
     participation_blocked: "Sei bloccato dalla partecipazione ai giveaway.",
 
+    // Anti-Cheat
+    anticheat_cooldown: "Attendi qualche secondo prima di riprovare.",
+    anticheat_suspicious: "Il tuo account è stato segnalato dal nostro sistema Anti-Cheat. Non puoi partecipare a questo giveaway.",
+    anticheat_spam: "Sei stato temporaneamente bloccato da questo giveaway a causa di attività ripetute di partecipazione/uscita.",
+    anticheat_win_limit: "Hai raggiunto il numero massimo di vittorie per oggi. Riprova domani!",
+
     // Sistema di Voto Top.gg
     vote_required_title: "🗳️ Voto Richiesto!",
     vote_required_desc: "Devi votare per il bot su **Top.gg** per avviare un giveaway!\n\nRiprova dopo aver votato. Gli utenti Premium possono saltare la votazione.",

@@ -82,6 +82,12 @@ module.exports = {
     command_error: "执行命令时发生错误。",
     participation_blocked: "您被禁止参与抽奖。",
 
+    // Anti-Cheat
+    anticheat_cooldown: "请等待几秒钟后再试。",
+    anticheat_suspicious: "您的账户已被我们的反作弊系统标记。您无法参与此抽奖。",
+    anticheat_spam: "由于反复加入/退出的行为，您已被暂时禁止参与此抽奖。",
+    anticheat_win_limit: "您已达到今天的最大获奖次数。明天再试吧！",
+
     // Top.gg投票系统
     vote_required_title: "🗳️ 需要投票！",
     vote_required_desc: "您需要在**Top.gg**上为机器人投票才能开始抽奖！\n\n投票后请重试。高级用户可以跳过投票。",

@@ -82,6 +82,12 @@ module.exports = {
     command_error: "コマンドの実行中にエラーが発生しました。",
     participation_blocked: "抽選への参加がブロックされています。",
 
+    // Anti-Cheat
+    anticheat_cooldown: "数秒お待ちいただいてから再度お試しください。",
+    anticheat_suspicious: "あなたのアカウントはアンチチートシステムによって不審としてフラグが立てられました。この抽選には参加できません。",
+    anticheat_spam: "繰り返しの参加/退出活動により、この抽選から一時的にブロックされました。",
+    anticheat_win_limit: "今日の最大当選回数に達しました。明日もう一度お試しください！",
+
     // Top.gg投票システム
     vote_required_title: "🗳️ 投票が必要です！",
     vote_required_desc: "抽選を開始するには**Top.gg**でボットに投票してください！\n\n投票後に再試行してください。プレミアムユーザーは投票をスキップできます。",

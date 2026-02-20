@@ -82,6 +82,12 @@ module.exports = {
     command_error: "Ett fel inträffade när kommandot utfördes.",
     participation_blocked: "Du är blockerad från att delta i tävlingar.",
 
+    // Anti-Cheat
+    anticheat_cooldown: "Vänligen vänta några sekunder innan du försöker igen.",
+    anticheat_suspicious: "Ditt konto har flaggats av vårt Anti-Cheat-system. Du kan inte delta i denna tävling.",
+    anticheat_spam: "Du har tillfälligt blockerats från denna tävling på grund av upprepad gå med/lämna-aktivitet.",
+    anticheat_win_limit: "Du har nått det maximala antalet vinster för idag. Försök igen imorgon!",
+
     // Top.gg Röstsystem
     vote_required_title: "🗳️ Röst Krävs!",
     vote_required_desc: "Du måste rösta på boten på **Top.gg** för att starta en tävling!\n\nFörsök igen efter att ha röstat. Premium-användare kan hoppa över röstningen.",

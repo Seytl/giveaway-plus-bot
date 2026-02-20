@@ -4,6 +4,7 @@ const { GiveawayComponentsV2 } = require('./componentsV2');
 const { Colors, Emojis } = require('./constants');
 const { LanguageManager } = require('./languageManager');
 const { CanvasManager } = require('./canvasManager');
+const { AntiCheat } = require('./antiCheat');
 
 // Çekiliş Yöneticisi
 class GiveawayManager {
@@ -279,16 +280,22 @@ class GiveawayManager {
             }
         }
 
-        // Kazananları seç
+        // Select winners (with Anti-Cheat win rate filter)
         const winners = [];
         const shuffled = entries.sort(() => Math.random() - 0.5);
 
         for (const entry of shuffled) {
             if (!winners.includes(entry) && winners.length < giveaway.winnerCount) {
-                winners.push(entry);
+                // Anti-Cheat: Check if user exceeded daily win limit
+                if (AntiCheat.isWinnerEligible(entry)) {
+                    winners.push(entry);
+                }
             }
             if (winners.length >= giveaway.winnerCount) break;
         }
+
+        // Record wins in Anti-Cheat system
+        winners.forEach(w => AntiCheat.recordWin(w));
 
         return winners;
     }
@@ -297,18 +304,24 @@ class GiveawayManager {
         const giveaway = this.giveaways.get(giveawayId);
         if (!giveaway || giveaway.ended) return { success: false, reason: 'Giveaway not found or ended.' };
 
-        // Blacklist kontrolü
+        // Blacklist check
         const blacklist = readJSON(BLACKLIST_FILE, { users: [] });
         if (blacklist.users.includes(userId)) {
             return { success: false, reason: 'participation_blocked' };
         }
 
-        // Zaten katılmış mı?
+        // Already joined?
         if (giveaway.participants.includes(userId)) {
             return { success: false, reason: 'already_joined', alreadyJoined: true };
         }
 
-        // Şartları kontrol et
+        // Anti-Cheat Check
+        const antiCheatResult = await AntiCheat.check(this.client, giveaway, userId);
+        if (!antiCheatResult.passed) {
+            return { success: false, reason: antiCheatResult.reason, flags: antiCheatResult.flags };
+        }
+
+        // Requirements check
         if (giveaway.requirements) {
             const check = await this.checkRequirements(giveaway, userId);
             if (!check.passed) {
@@ -316,8 +329,9 @@ class GiveawayManager {
             }
         }
 
-        // Katılımcı ekle
+        // Add participant
         giveaway.participants.push(userId);
+        AntiCheat.trackJoin(userId, giveawayId);
         this.save();
 
         // Giriş hakkı hesapla
@@ -359,6 +373,7 @@ class GiveawayManager {
         }
 
         giveaway.participants.splice(index, 1);
+        AntiCheat.trackLeave(userId, giveawayId);
         this.save();
 
         // Embed güncelle

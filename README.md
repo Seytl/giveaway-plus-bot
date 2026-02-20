@@ -34,10 +34,17 @@ Professional and comprehensive giveaway bot developed with Discord.js v14.
 - ✅ **Most Popular** - Track giveaways with the most entries
 - ✅ **Top Winner** - Track users with the most wins
 
-### 🛡️ Security
+### 🛡️ Security & Anti-Cheat
 - ✅ **Blacklist** - Block unwanted users
 - ✅ **Permission Control** - Authority system for commands
-- ✅ **Anti-Cheat** - Prevent double entries
+- ✅ **Anti-Cheat System** - 7-layer protection for fair giveaways:
+  - Join Cooldown (5s between attempts)
+  - Alt Account Detection (min 7-day account age)
+  - Win Rate Limiter (max 3 wins/day)
+  - Join/Leave Spam Detection
+  - Suspicious Profile Flagging
+  - Activity Logging (`anticheat.json`)
+  - Webhook Alerts for blocked users
 - ✅ **Blacklist Appeal** - `/appeal` command for users to request unban
 
 ### 🛡️ Anti-Crash System v2.1.0

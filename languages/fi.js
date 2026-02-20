@@ -82,6 +82,12 @@ module.exports = {
     command_error: "Virhe komentoa suoritettaessa.",
     participation_blocked: "Sinut on estetty osallistumasta arvontoihin.",
 
+    // Anti-Cheat
+    anticheat_cooldown: "Odota muutama sekunti ennen kuin yrität uudelleen.",
+    anticheat_suspicious: "Tilisi on merkitty Anti-Cheat-järjestelmämme toimesta epäilyttäväksi. Et voi osallistua tähän arvontaan.",
+    anticheat_spam: "Sinut on väliaikaisesti estetty tästä arvonnasta toistuvan liittymis-/poistumisaktiviteetin vuoksi.",
+    anticheat_win_limit: "Olet saavuttanut tämän päivän voittojen enimmäismäärän. Yritä uudelleen huomenna!",
+
     // Top.gg Äänestysjärjestelmä
     vote_required_title: "🗳️ Ääni Vaaditaan!",
     vote_required_desc: "Sinun täytyy äänestää bottia **Top.gg**:ssä aloittaaksesi arvonnan!\n\nYritä uudelleen äänestyksen jälkeen. Premium-käyttäjät voivat ohittaa äänestyksen.",

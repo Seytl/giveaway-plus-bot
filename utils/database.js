@@ -8,6 +8,7 @@ const BLACKLIST_FILE = path.join(DB_PATH, 'blacklist.json');
 const HISTORY_FILE = path.join(DB_PATH, 'history.json');
 const STATS_FILE = path.join(DB_PATH, 'stats.json');
 const PREMIUM_FILE = path.join(DB_PATH, 'premium.json');
+const ANTICHEAT_FILE = path.join(DB_PATH, 'anticheat.json');
 
 // Veritabanı klasörü oluştur
 if (!fs.existsSync(DB_PATH)) {
@@ -224,6 +225,7 @@ module.exports = {
     HISTORY_FILE,
     STATS_FILE,
     PREMIUM_FILE,
+    ANTICHEAT_FILE,
     readJSON,
     writeJSON,
     PremiumManager

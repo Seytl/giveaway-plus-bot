@@ -82,6 +82,12 @@ module.exports = {
     command_error: "Fehler beim Ausführen des Befehls.",
     participation_blocked: "Du bist von der Teilnahme gesperrt.",
 
+    // Anti-Cheat
+    anticheat_cooldown: "Bitte warte ein paar Sekunden, bevor du es erneut versuchst.",
+    anticheat_suspicious: "Dein Konto wurde vom Anti-Cheat-System als verdächtig markiert. Du kannst an diesem Gewinnspiel nicht teilnehmen.",
+    anticheat_spam: "Du wurdest wegen wiederholtem Beitreten/Verlassen vorübergehend von diesem Gewinnspiel gesperrt.",
+    anticheat_win_limit: "Du hast die maximale Anzahl an Gewinnen für heute erreicht. Versuche es morgen erneut!",
+
     // Top.gg Abstimmungssystem
     vote_required_title: "🗳️ Abstimmung erforderlich!",
     vote_required_desc: "Du musst für den Bot auf **Top.gg** abstimmen, um ein Gewinnspiel zu starten!\n\nVersuche es nach der Abstimmung erneut. Premium-Benutzer können ohne Abstimmung teilnehmen.",
